@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  inventory-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: builder
+    ports:
+      - "50051:50051"
+    env_file:
+      - .env
+    command: go run ./cmd/grpc/main.go
+    networks:
+      - postgres_default
+
+networks:
+  postgres_default:
+    external: true

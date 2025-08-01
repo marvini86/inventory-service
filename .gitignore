@@ -29,10 +29,6 @@ tmp
 # Go workspace file
 go.work
 
-
-# exe
-api
-
 ### Go Patch ###
 /vendor/
 /Godeps/
