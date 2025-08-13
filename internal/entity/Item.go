@@ -1,5 +1,7 @@
 package entity
 
+import "time"
+
 type Item struct {
 	ID                int
 	CodeIntegration   string
@@ -8,13 +10,13 @@ type Item struct {
 	Image             string
 	AvailableQuantity int
 	CategoryID        int
-	CreatedAt         string
-	UpdatedAt         string
+	CreatedAt         time.Time
+	UpdatedAt         time.Time
 }
 
 type ItemCategory struct {
 	ID        int
 	Name      string
-	CreatedAt string
-	UpdatedAt string
+	CreatedAt time.Time
+	UpdatedAt time.Time
 }

@@ -33,7 +33,7 @@ func (s *GrpcServer) Run() error {
 
 	log.Printf("Starting gRPC server on port %s", s.port)
 
-	serviceRegister := ServiceRegister{grpcServer: s.grpcServer}
+	serviceRegister := NewServiceRegister(s.grpcServer)
 	serviceRegister.Register()
 
 	if err = s.grpcServer.Serve(l); err != nil {

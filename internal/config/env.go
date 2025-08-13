@@ -1,20 +1,22 @@
 package config
 
 import (
+	"fmt"
 	"github.com/joho/godotenv"
 	"log"
 	"os"
 )
 
-func LoadEnv() {
+func LoadEnv() error {
 	if isDevelopment() {
 		log.Println("Development mode. Loading environment variables from .env file")
 
 		err := godotenv.Load(".env")
 		if err != nil {
-			log.Fatal("Error loading .env file")
+			return fmt.Errorf("failed to load .env file: %v", err)
 		}
 	}
+	return nil
 }
 
 func isDevelopment() bool {

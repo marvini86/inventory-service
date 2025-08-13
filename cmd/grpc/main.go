@@ -7,7 +7,9 @@ import (
 )
 
 func main() {
-	config.LoadEnv()
+	if err := config.LoadEnv(); err != nil {
+		log.Fatalf("failed to load environment variables: %v", err)
+	}
 
 	server := server.NewGrpcServer()
 	if err := server.Run(); err != nil {
